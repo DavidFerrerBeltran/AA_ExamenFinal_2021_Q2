@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5in]{geometry} 
+\usepackage{tikz-cd}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{calrsfs,mathrsfs}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {/} }
+\usetikzlibrary{arrows}
+\usepackage{enumitem}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\renewcommand{\baselinestretch}{1.2} 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newcommand{\bigO}{\mathcal{O}}
+
+\begin{document}
+
+\title{Ampliació d'Algorísmia\\Exercicis d'Examen}
+\author{Alumnes d'AA 2021 - Q2}
+
+\maketitle
+\section*{Parameterization}
+\begin{problem}{5} Maximizing support
+
+Consider an undirected graph $G = (V, E)$. We say that a set $S \subseteq V$ supports a vertex $u \in V$
+(or $u$ is supported by $S$) if $u$ and all its neighbors in $G$ belong to $S$.
+
+The Max Restricted Support problem is defined as follows: Given an undirected graph $G = (V, E)$ and an integer $s$,
+$1 \leq s \leq |V|$, find a subset $S \subseteq V$ with $|S| = s$ such that the number of vertices supported by $S$
+is maximum over all sets with $s$ vertices.
+
+\begin{enumerate}[a)]
+\item Show that the bounded version of this optimization problem under the natural parameterization or when the parameter
+is the value $s$ belongs to {\large XP}.
+
+\begin{solution}\ \\
+Let $S$ be a supporting set and $T$ be a supported set, where $|S| = s$ and $|T| = t$ are their respective cardinalities. There exist $\bigO(n^k)$ such sets of size $k$.
+
+To find the supported set $T$ from a supporting set $S$, we loop through all its vertices, and check the edges of each vertex. If and only if all the edges are within $S$ the vertex belongs to $T$. Checking up to $n$ edges for $s$ vertices costs $\bigO(n \times s)$.
+
+Similarly, to find the supporting set $S$ from a supported set $T$, we loop through all its vertices, adding them and all the vertices they are connected to to $S$. It takes $\bigO(n \times t)$ checks to note which vertices of $V$ belong to $S$, then $n$ time to construct it.
+
+If we parameterize either problem, with parameter $k$, it takes $\bigO(n^k \times n \times k)$ time to check all the possible sets to find the best solution restricted by the parameter. As such, the parameterized problem belongs to {\large XP}.
+\end{solution}
+
+\item Provide a {\large FPT} algorithm for the optimization problem parameterized by the treewidth of $G$.
+
+\begin{solution}\ \\
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\Huge [YOUR FPT ALGORITHM HERE]
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end{solution}
+
+\end{enumerate}
+\end{problem}
+
+
+
+\end{document}
